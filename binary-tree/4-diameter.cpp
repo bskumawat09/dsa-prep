@@ -18,7 +18,6 @@ public:
     int diameter(Node* root) {
         // Your code here
         int d = 0;
-
         helper(root, &d);
         return d;
     }

@@ -42,7 +42,7 @@ public:
 
     /* ----------Method-2: Using recursive preorder---------- */
 
-    vector<int> rightView(Node* root) {
+    vector<int> rightView2(Node* root) {
         // Your Code here
         vector<int> ans;
         reversePreorder(root, ans, 0);
