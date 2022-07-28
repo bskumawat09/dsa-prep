@@ -50,9 +50,8 @@ public:
     }
 
     void reversePreorder(Node* node, vector<int>& ans, int level) {
-        if(node == NULL) {
-            return;
-        }
+        if(node == NULL) return;
+
         // ans.size() = 2 represents, we are looking to fill 1st element of level 2
         if(level == ans.size()) {
             ans.push_back(node->data);
