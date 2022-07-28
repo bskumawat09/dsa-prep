@@ -27,7 +27,7 @@ public:
 class Solution {
 public:
     vector<vector<int>> verticalOrder(Node* root) {
-        // code here
+        // Code here
         vector<vector<int>> ans;
 
         if(root == NULL) return ans;
@@ -40,14 +40,7 @@ public:
             Pair* t = q.front();
             q.pop();
 
-            // if "vl" key not present in map
-            if(mp.find(t->vl) == mp.end()) {
-                vector<int> arr;
-                arr.push_back(t->node->data);
-                mp[t->vl] = arr;
-            } else {
-                mp[t->vl].push_back(t->node->data);
-            }
+            mp[t->vl].push_back(t->node->data);
 
             if(t->node->left != NULL)
                 q.push(new Pair(t->node->left, t->vl - 1));
@@ -63,9 +56,50 @@ public:
     }
 };
 
-/* -----------Method-2: Using width of binary tree (without map)----------- */
+/* -----------Method-2: Using unordered_map----------- */
 
-class Solution2 {
+class Solution {
+public:
+    vector<vector<int>> verticalOrder(Node* root) {
+        // Code here
+        vector<vector<int>> ans;
+        // To print nodes in the desired order, we can have 2 variables denoting min and max vertical levels
+        int minVL = 0;
+        int maxVL = 0;
+
+        if(root == NULL) return ans;
+
+        unordered_map<int, vector<int>> mp;
+        queue<Pair*> q;
+        q.push(new Pair(root, 0));
+
+        while(q.size()) {
+            Pair* t = q.front();
+            q.pop();
+
+            mp[t->vl].push_back(t->node->data);
+
+            if(t->vl < minVL) minVL = t->vl;
+            if(t->vl > maxVL) maxVL = t->vl;
+
+            if(t->node->left != NULL)
+                q.push(new Pair(t->node->left, t->vl - 1));
+
+            if(t->node->right != NULL)
+                q.push(new Pair(t->node->right, t->vl + 1));
+        }
+
+        for(int i = minVL; i <= maxVL; i++) {
+            for(int x : mp[i])
+                ans.push_back(x);
+        }
+        return ans;
+    }
+};
+
+/* -----------Method-3: Using width of binary tree & array----------- */
+
+class Solution3 {
 private:
     int minVL = INT_MAX;
     int maxVL = INT_MIN;
@@ -87,7 +121,7 @@ private:
 
 public:
     vector<vector<int>> verticalOrder(Node* root) {
-        // code here
+        // Code here
         vector<vector<int>> ans;
 
         if(root == NULL) return ans;
@@ -116,11 +150,15 @@ public:
 };
 
 /*
-Solution-1:
+Solution-1: Using map
 Time    = O(N * logN)
-Space   = O(2^H) => O(N)
+Space   = O(N)
 
-Solution-2:
+Solution-2: Using unordered_map (Preferred)
+Time    = O(N)
+Space   = O(N)
+
+Solution-3: Using width & array
 Time    = O(N) + O(N) => O(N)
 Space   = O(H) + O(2^H) => O(N)
 */
