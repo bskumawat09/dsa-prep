@@ -23,7 +23,7 @@ public:
 
 class Solution {
 public:
-    Node* constructor(vector<int> arr) {
+    Node* constructor(vector<int> arr) {  // [5,8,3,-1,-1,-1,11,4,-1,-1,2,-1,-1]
         Node* root = new Node(arr[0]);
 
         stack<Pair*> stk;
