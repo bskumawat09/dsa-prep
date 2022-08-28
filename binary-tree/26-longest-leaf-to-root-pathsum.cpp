@@ -32,6 +32,6 @@ public:
 };
 
 /*
-Time    : 0(N)
-Space   : 0(N)
+Time    = O(N)
+Space   = O(N)
 */
