@@ -15,7 +15,7 @@ struct Node {
 
 class Solution {
 public:
-    vector<int> rightView(Node* root) {
+    vector<int> leftView(Node* root) {
         // Your code here
         vector<int> ans;
 
@@ -33,30 +33,33 @@ public:
                 Node* t = q.front();
                 q.pop();
 
-                if(t->right != NULL) q.push(t->right);
                 if(t->left != NULL) q.push(t->left);
+                if(t->right != NULL) q.push(t->right);
             }
         }
         return ans;
     }
+};
 
-    /* ----------Method-2: Using recursive preorder---------- */
+/* ----------Method-2: Using recursive preorder---------- */
 
-    vector<int> rightView2(Node* root) {
-        // Your Code here
+class Solution2 {
+public:
+    vector<int> leftView(Node* root) {
+        // Your code here
         vector<int> ans;
-        reversePreorder(root, ans, 0);
+        preorder(root, ans, 0);
         return ans;
     }
 
-    void reversePreorder(Node* node, vector<int>& ans, int level) {
+    void preorder(Node* node, vector<int>& ans, int level) {
         if(node == NULL) return;
 
-        // ans.size() = 2 represents, we are looking to fill 1st element of level 2
+        // here ans.size() = 2 represents, we are looking to fill 1st element of level 2
         if(level == ans.size()) {
             ans.push_back(node->data);
         }
-        reversePreorder(node->right, ans, level + 1);
-        reversePreorder(node->left, ans, level + 1);
+        preorder(node->left, ans, level + 1);
+        preorder(node->right, ans, level + 1);
     }
 };

@@ -56,9 +56,9 @@ public:
     }
 };
 
-/* -----------Method-2: Using unordered_map----------- */
+/* -----------Method-2: Using unordered_map (Preffered)----------- */
 
-class Solution {
+class Solution2 {
 public:
     vector<vector<int>> verticalOrder(Node* root) {
         // Code here

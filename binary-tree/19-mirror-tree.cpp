@@ -36,6 +36,7 @@ public:
 
         root->left = mirror(root->right);
         root->right = mirror(tempLeft);
+        return root;
     }
 };
 

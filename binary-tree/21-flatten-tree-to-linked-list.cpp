@@ -58,7 +58,7 @@ public:
     }
 }
 
-/* -----------Method-2: Iterative and O(1) space----------- */
+/* -----------Method-2: Iterative and O(1) space (Morris Traversal)----------- */
 
 class Solution3 {
 public:
@@ -72,9 +72,9 @@ public:
                     prev = prev->right;
                 }
 
-                // make the right pointer of last preorder node on left points to current's right
+                // make the right pointer of last preorder node on left, points to current's right
                 // then make current's right points to current's left
-                // do some for every node
+                // repeat same for every node
                 prev->right = cur->right;
                 cur->right = cur->left;
                 cur->left = NULL;
@@ -85,15 +85,15 @@ public:
 }
 
 /*
-Solution-1:
+Solution-1: Reverse Preorder (Recursive)
 Time    = O(N)
 Space   = O(H)
 
-Solution-2:
+Solution-2: Iterative
 Time    = O(N)
 Space   = O(N)
 
-Solution-3:
+Solution-3: Morris Traversal (Iterative)
 Time    = O(N)
 Space   = O(1)
 
