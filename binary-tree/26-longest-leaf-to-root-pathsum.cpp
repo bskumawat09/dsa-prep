@@ -14,10 +14,10 @@ public:
         return sum;
     }
 
-    void helper(Node* root, int level, int s) {
+    void _pathSum(Node* root, int level, int s) {
         if(root == NULL) return;
 
-        if(!root->left && !root->right) {
+        if(root->left == NULL && root->right == NULL) {
             if(level > maxDepth) {
                 sum = s + root->data;
                 maxDepth = level;
@@ -26,8 +26,8 @@ public:
             }
         }
 
-        helper(root->left, level + 1, s + root->data);
-        helper(root->right, level + 1, s + root->data);
+        _pathSum(root->left, level + 1, s + root->data);
+        _pathSum(root->right, level + 1, s + root->data);
     }
 };
 

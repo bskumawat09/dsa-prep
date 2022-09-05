@@ -13,7 +13,7 @@ public:
     Node* _buildTree(int pre[], int in[], int preStart, int preEnd, int inStart, int inEnd) {
         if(preStart > preEnd) return NULL;
 
-        Node* root = new Node(pre[ps]);
+        Node* root = new Node(pre[preStart]);
 
         // 1st element in preorder represents root. Find this root in inorder array,
         // all the elements left to it are part of left subtree and that are on right are part of right subtree
