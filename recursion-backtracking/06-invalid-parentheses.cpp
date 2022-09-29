@@ -7,9 +7,9 @@ class Solution {
 public:
     void removeParentheses(string s) {
         // Code here
-        int mptr = getMinBracketsToRemove(s);
-        set<string> ds;
+        int mptr = getMinBracketsToRemove(s);  // get minimum parantheses to be removed
 
+        set<string> ds;  // store in set to prevent duplicates
         _remove("", s, mbtr, ds);
 
         vector<string> ans;
@@ -17,6 +17,7 @@ public:
         for(auto str : ds) {
             ans.push_back(str);
         }
+
         return ans;
     }
 
