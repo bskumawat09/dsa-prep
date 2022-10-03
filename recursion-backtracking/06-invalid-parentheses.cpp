@@ -10,7 +10,7 @@ public:
         int mptr = getMinBracketsToRemove(s);  // get minimum parantheses to be removed
 
         set<string> ds;  // store in set to prevent duplicates
-        _remove("", s, mbtr, ds);
+        _remove("", 0, s, mptr, ds);
 
         vector<string> ans;
 
@@ -21,20 +21,20 @@ public:
         return ans;
     }
 
-    void _remove(string asf, string s, int cnt, set<string>& ds) {
-        if(cnt < 0) return;
+    void _remove(string asf, int i, string s, int removeCnt, set<string>& ds) {
+        if(removeCnt < 0) return;
 
-        if(s.length() == 0) {
+        if(i == s.length()) {
             if(getMinBracketsToRemove(asf) == 0) {
                 ds.insert(asf);
             }
             return;
         }
 
-        string ros = s.substr(1);
+        char c = s[i];
 
-        _remove(asf, ros, cnt - 1, ds);
-        _remove(asf + s[0], ros, cnt, ds);
+        _remove(asf, i + 1, s, removeCnt - 1, ds);
+        _remove(asf + c, i + 1, s, removeCnt, ds);
     }
 
     int getMinBracketsToRemove(string s) {
@@ -57,6 +57,12 @@ public:
 };
 
 /*
+Input:
+s = "()())()"
+
+Output:
+["(())()","()()()"]
+
 Time    = O(2^N)
 Space   = O(N)
 */

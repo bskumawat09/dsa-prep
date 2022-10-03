@@ -42,7 +42,7 @@ public:
             return;
         }
 
-        for(pair<char, int>& it : fmp) {
+        for(auto& it : fmp) {
             if(it.second > 0) {
                 it.second--;
                 helper(i + 1, len, fmp, oddCh, asf + it.first);
@@ -54,7 +54,7 @@ public:
 
 int main() {
     Solution sol;
-    string s = "ababababc";
+    string s = "ababccc";
     sol.allPalindromicPermutation(s);
 
     return 0;
@@ -62,13 +62,13 @@ int main() {
 
 /*
 Input:
-    "ababababc"
+    "ababccc"
 
 Output:
-    aabbcbbaa
-    ababcbaba
-    abbacabba
-    baabcbaab
-    babacabab
-    bbaacaabb
+    abcccba
+    acbcbca
+    bacccab
+    bcacacb
+    cabcbac
+    cbacabc
 */
