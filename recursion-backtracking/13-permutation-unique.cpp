@@ -33,7 +33,7 @@ public:
 };
 
 int main() {
-    string s = "aabb";
+    string s = "ababb";
     int r = 3;
 
     Solution sol;
@@ -44,9 +44,9 @@ int main() {
 
 /*
  Input:
- s = "aabbb", r = 3
+ s = "ababb", r = 3
 
  Output:
- ["aab","aba","abb","baa","bab","bba"]
+ ["aab","aba","abb","baa","bab","bba", "bbb"]
 
  */
