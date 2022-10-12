@@ -32,7 +32,7 @@ public:
 };
 
 int main() {
-    string s = "ababb";
+    string s = "aabbb";
     int r = 3;
 
     Solution sol;
@@ -46,6 +46,6 @@ int main() {
  s = "ababb", r = 3
 
  Output:
- ["aab","aba","abb","baa","bab","bba", "bbb"]
+ ["aab","aba","abb","baa","bab","bba","bbb"]
 
  */

@@ -24,12 +24,6 @@ public:
         if(sum == 0) return 0;
         if(idx == n) return INF;
 
-        // if(idx == n - 1) {
-        //     if(sum % coins[idx] == 0)
-        //         return sum / coins[idx];
-        //     return INF;
-        // }
-
         if(dp[idx][sum] != -1) return dp[idx][sum];
 
         int excl = _minCoins(idx + 1, coins, n, sum);
