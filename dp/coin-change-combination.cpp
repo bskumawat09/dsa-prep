@@ -9,18 +9,20 @@
 #include <vector>
 using namespace std;
 
+#define N 101
+
 class SolutionMemo {
 public:
-    long long int dp[1001][1001];
+    int dp[N][N];
 
-    long long int coinChange(int coins[], int n, int sum) {
+    int coinChange(int coins[], int n, int sum) {
         // Code here
         memset(dp, -1, sizeof(dp));
 
         return helper(0, coins, n, sum);
     }
 
-    long long int helper(int idx, int coins[], int n, int sum) {
+    int helper(int idx, int coins[], int n, int sum) {
         if(idx == n) return 0;
 
         if(sum == 0) return 1;
@@ -28,7 +30,7 @@ public:
         if(dp[idx][sum] != -1)  // if result is already computed earlier
             return dp[idx][sum];
 
-        long long int ways = 0;
+        int ways = 0;
         if(sum >= coins[idx]) {  // use this coin
             ways += helper(idx, coins, n, sum - coins[idx]);
         }
@@ -41,15 +43,15 @@ public:
 /*
  --------------------------------------------Tabulation--------------------------------------------
  * 2d DP
- * Storage & Meaning: dp[i][j] => # of ways to make sum "j" by combining first "i" coins.
+ * Storage & Meaning: dp[i][j] => # of ways to make the sum "j" by combining first "i" coins.
  *
  */
 
 class SolutionTab {
 public:
-    long long int dp[1001][1001];
+    int dp[N][N];
 
-    long long int coinChange(int coins[], int n, int sum) {
+    int coinChange(int coins[], int n, int sum) {
         memset(dp, 0, sizeof(dp));
 
         for(int i = 0; i <= n; i++) {
@@ -83,9 +85,9 @@ public:
 
 class SolutionTabOpti {
 public:
-    long long int dp[1001];
+    int dp[N];
 
-    long long int coinChange(int coins[], int n, int sum) {
+    int coinChange(int coins[], int n, int sum) {
         memset(dp, 0, sizeof(dp));
         dp[0] = 1;
 

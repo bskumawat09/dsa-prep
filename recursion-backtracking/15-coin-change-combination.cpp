@@ -62,7 +62,7 @@ int main() {
 
 /*
  Input:
-    coins[] = [2, 3, 5, 2, 5, 5]
+    coins[] = [2, 3, 5]
     amount = 8
 
  Output:
