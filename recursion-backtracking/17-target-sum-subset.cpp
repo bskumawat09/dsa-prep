@@ -2,6 +2,7 @@
  Given an array and target sum. Print all distinct subsets with sum equal to target sum.
  Each element in array can be used only once.
 
+ Choices: For each element either we pick it or we don't pick it.
  */
 
 #include <algorithm>
@@ -24,8 +25,6 @@ public:
     }
 
     void helper(int idx, int arr[], int n, int sum, vector<int>& asf, vector<vector<int>>& ans) {
-        if(sum < 0) return;
-
         if(idx == n) {
             if(sum == 0) {
                 ans.push_back(asf);
@@ -34,9 +33,11 @@ public:
         }
 
         // pick this element
-        asf.push_back(arr[idx]);
-        helper(idx + 1, arr, n, sum - arr[idx], asf, ans);
-        asf.pop_back();
+        if(sum >= arr[idx]) {
+            asf.push_back(arr[idx]);
+            helper(idx + 1, arr, n, sum - arr[idx], asf, ans);
+            asf.pop_back();
+        }
 
         // ignore duplicates and jump to next distinct element
         while(idx < n - 1 && arr[idx + 1] == arr[idx])

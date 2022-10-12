@@ -1,6 +1,9 @@
 /*
  Given denominations of currency and amount to pay. Print all different combinations to pay the amount.
  You have infinite supply of each coin.
+
+ Choices: For each coin, either we don't use it or we use it (once, twice, thrice ...) for making the change.
+ The order in which a payment is made, doen't matter here.
  */
 
 #include <algorithm>
@@ -23,8 +26,6 @@ public:
     }
 
     void helper(int idx, int coins[], int n, int amount, vector<int>& asf, vector<vector<int>>& ans) {
-        if(amount < 0) return;
-
         if(idx == n) {
             if(amount == 0) {
                 ans.push_back(asf);
@@ -33,13 +34,11 @@ public:
         }
 
         // take this coin
-        asf.push_back(coins[idx]);
-        helper(idx, coins, n, amount - coins[idx], asf, ans);
-        asf.pop_back();
-
-        // ignore duplicates and jump to next coin with distinct value
-        while((idx < n - 1) && (coins[idx + 1] == coins[idx]))
-            idx++;
+        if(amount >= coins[idx]) {
+            asf.push_back(coins[idx]);
+            helper(idx, coins, n, amount - coins[idx], asf, ans);
+            asf.pop_back();
+        }
 
         // don't take this coin
         helper(idx + 1, coins, n, amount, asf, ans);
@@ -47,8 +46,8 @@ public:
 };
 
 int main() {
-    int coins[] = {2, 3, 5, 2, 5, 5};
-    int amount = 10;
+    int coins[] = {2, 3, 5};
+    int amount = 8;
     int n = sizeof(coins) / sizeof(coins[0]);
 
     Solution sol;
@@ -64,12 +63,11 @@ int main() {
 /*
  Input:
     coins[] = [2, 3, 5, 2, 5, 5]
-    amount = 10
+    amount = 8
 
  Output:
-    2 2 2 2 2
-    2 2 3 3
-    2 3 5
-    5 5
+    2 2 2 2
+    2 3 3
+    3 5
 
  */

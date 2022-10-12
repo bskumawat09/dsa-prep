@@ -7,9 +7,8 @@ public:
     void permute(string s, int r) {
         // Code here
         map<char, int> fmap;
-        for(char c : s) {
+        for(char c : s)
             fmap[c]++;
-        }
 
         helper("", r, fmap);
     }

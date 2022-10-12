@@ -4,22 +4,23 @@ using namespace std;
 
 class Solution {
 public:
-    void permute(string s, int r) {
+    void combination(string s, int r) {
         // Code here
         helper(0, "", s, r);
     }
 
     void helper(int idx, string asf, string s, int r) {
         if(idx == s.length()) {
-            if(asf.length() == r)
+            if(asf.length() == r) {
                 cout << asf << endl;
+            }
             return;
         }
 
         char c = s[idx];
 
-        helper(idx + 1, asf, s, r);
-        helper(idx + 1, asf + c, s, r);
+        helper(idx + 1, asf, s, r);      // don't pick
+        helper(idx + 1, asf + c, s, r);  // pick
     }
 };
 
