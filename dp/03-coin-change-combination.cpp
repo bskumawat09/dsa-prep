@@ -18,7 +18,6 @@ public:
     int coinChange(int coins[], int n, int sum) {
         // Code here
         memset(dp, -1, sizeof(dp));
-
         return helper(0, coins, n, sum);
     }
 
@@ -40,7 +39,7 @@ public:
     }
 };
 
-/*
+/**
  --------------------------------------------Tabulation--------------------------------------------
  * 2d DP
  * Storage & Meaning: dp[i][j] => # of ways to make the sum "j" by combining first "i" coins.
@@ -76,7 +75,7 @@ public:
     }
 };
 
-/*
+/**
  --------------------------------------------Space Optimized--------------------------------------------
  * 1d DP
  * Storage & Meaning: dp[i] => # of ways to make sum "i".
