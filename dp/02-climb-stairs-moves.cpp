@@ -15,7 +15,6 @@ public:
     /**
      * @brief fn(i) => min # of moves to reach "n" from "i"
      * direction of calls: fn(0) --> fn(n)
-     * direction of fills: fn(n) --> fn(0)
      *
      */
     int _climb(int stp, int jumps[], int n) {
