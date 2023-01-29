@@ -3,7 +3,6 @@
  *
  */
 
-#include <cstring>
 #include <iostream>
 #include <vector>
 using namespace std;
@@ -18,22 +17,23 @@ public:
         // Code here
         int n = nums.size();
         vector<vector<int>> dp(n + 1, vector<int>(sum + 1, -1));
-        int res = _targetSumSubset(n, nums, sum, dp);
 
-        return (res == 1 ? true : false);
+        return _targetSumSubset(nums, n, sum, dp);
     }
 
-    int _targetSumSubset(int n, vector<int>& nums, int sum, vector<vector<int>>& dp) {
+    int _targetSumSubset(vector<int>& nums, int n, int sum, vector<vector<int>>& dp) {
         if(sum == 0) return 1;
         if(n == 1) return nums[0] == sum;
 
         if(dp[n][sum] != -1) return dp[n][sum];
 
-        bool excl = _targetSumSubset(n - 1, nums, sum, dp);
+        bool excl = _targetSumSubset(nums, n - 1, sum, dp);  // exclude
         if(excl) return dp[n][sum] = 1;
 
-        bool incl = _targetSumSubset(n - 1, nums, sum - nums[n - 1], dp);
-        if(incl) return dp[n][sum] = 1;
+        if(sum >= nums[n - 1]) {  // include
+            bool incl = _targetSumSubset(nums, n - 1, sum - nums[n - 1], dp);
+            if(incl) return dp[n][sum] = 1;
+        }
 
         return dp[n][sum] = 0;
     }
@@ -47,7 +47,7 @@ public:
 
 class SolutionTab {
 public:
-    int targetSumSubset(vector<int>& nums, int sum) {
+    bool targetSumSubset(vector<int>& nums, int sum) {
         int n = nums.size();
         vector<vector<bool>> dp(n + 1, vector<bool>(sum + 1, false));
 
@@ -59,14 +59,14 @@ public:
                     dp[i][j] = false;
                 else {
                     dp[i][j] = dp[i - 1][j];
-                    if(j >= nums[i]) {
-                        dp[i][j] = dp[i][j] || dp[i - 1][j - nums[i]];
+                    if(j >= nums[i - 1]) {
+                        dp[i][j] = dp[i][j] || dp[i - 1][j - nums[i - 1]];
                     }
                 }
             }
         }
 
-        return dp[n][sum] ? 1 : 0;
+        return dp[n][sum];
     }
 };
 
