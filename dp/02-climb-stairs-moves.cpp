@@ -1,3 +1,8 @@
+/**
+ * https://leetcode.com/problems/jump-game-ii/
+ *
+ */
+
 #include <iostream>
 #include <vector>
 using namespace std;
@@ -13,7 +18,7 @@ public:
     }
 
     /**
-     * @brief fn(i) => min # of moves to reach "n" from "i"
+     * @brief fn(i) => min # of moves to reach from "i" to "n"
      * direction of calls: fn(0) --> fn(n)
      *
      */
