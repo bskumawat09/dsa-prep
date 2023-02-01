@@ -1,9 +1,8 @@
-/*
+/**
  * https://leetcode.com/problems/minimum-path-sum/
  *
  */
 
-#include <cstring>
 #include <iostream>
 #include <vector>
 using namespace std;
@@ -15,6 +14,7 @@ public:
         int n = grid[0].size();
 
         dp = vector<vector<int>>(m, vector<int>(n, -1));
+
         return minPathSum(m - 1, n - 1, grid);
     }
 
@@ -60,6 +60,7 @@ public:
                 }
             }
         }
+
         return dp[m - 1][n - 1];
     }
 };
@@ -69,7 +70,7 @@ int main() {
         {1, 3, 1},
         {1, 5, 1},
         {4, 2, 1},
-    }
+    };
 
     SolutionMemo solMemo;
     cout << solMemo.gridUniquePaths(grid) << endl;
@@ -80,7 +81,7 @@ int main() {
     return 0;
 }
 
-/*
+/**
  * Input:
  * {{1,3,1},
  *  {1,5,1},

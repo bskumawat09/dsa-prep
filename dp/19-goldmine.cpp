@@ -1,4 +1,4 @@
-/*
+/**
  * https://practice.geeksforgeeks.org/problems/gold-mine-problem2608/1
  *
  */
@@ -13,6 +13,7 @@ class SolutionMemo {
 
 public:
     int goldmine(vector<vector<int>>& matrix) {
+        // Code here
         int N = matrix.size();
         int M = matrix[0].size();
 
@@ -76,20 +77,8 @@ public:
         for(int r = 0; r < N; r++) {
             maxPathSum = max(maxPathSum, dp[r][0]);
         }
+
         return maxPathSum;
-    }
-};
-
-/**
- --------------------------------------------Space Optimized--------------------------------------------
- *
- *
- *
- */
-
-class SolutionTabOpti {
-public:
-    int goldmine(vector<vector<int>>& matrix) {
     }
 };
 
@@ -107,13 +96,10 @@ int main() {
     SolutionTab solTab;
     cout << solTab.goldmine(matrix) << endl;
 
-    SolutionTabOpti solTabOpti;
-    cout << solTabOpti.goldmine(matrix) << endl;
-
     return 0;
 }
 
-/*
+/**
  * Input:
  * matrix = {{1, 3, 1, 5},
  *           {2, 2, 4, 1},

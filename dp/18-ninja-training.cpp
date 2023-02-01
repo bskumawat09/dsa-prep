@@ -1,4 +1,4 @@
-/*
+/**
  * https://www.codingninjas.com/codestudio/problems/ninja-s-training_3621003
  *
  */
@@ -119,7 +119,7 @@ public:
     }
 };
 
-/*
+/**
  --------------------------------------------Space Optimized--------------------------------------------
  *
  */
@@ -153,13 +153,18 @@ public:
         for(int i = 0; i < 4; i++) {
             ans = max(ans, dp[i]);
         }
+
         return ans;
     }
 };
 
 int main() {
-    // vector<vector<int>> points = {{1, 2, 5}, {3, 1, 1}, {3, 3, 3}};
-    vector<vector<int>> points = {{94, 85, 49}, {14, 63, 1}, {35, 6, 80}, {2, 65, 11}, {94, 92, 47}, {99, 97, 51}};
+    vector<vector<int>> points = {
+        {1, 2, 5},
+        {3, 1, 1},
+        {3, 3, 3},
+    };
+    // vector<vector<int>> points = {{94, 85, 49}, {14, 63, 1}, {35, 6, 80}, {2, 65, 11}, {94, 92, 47}, {99, 97, 51}};
 
     int n = points.size();
 
@@ -178,7 +183,7 @@ int main() {
     return 0;
 }
 
-/*
+/**
  * Input:
  * n = 3
  * points[][] = {{1, 2, 5},

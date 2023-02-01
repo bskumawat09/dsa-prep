@@ -1,9 +1,9 @@
-/*
- https://leetcode.com/problems/house-robber-ii
-
- Since House[1] and House[n] are adjacent, they cannot be robbed together.
- Therefore, the problem becomes to rob either House[1]-House[n-1] or House[2]-House[n],depending on which choice offers more money.
-
+/**
+ * https://leetcode.com/problems/house-robber-ii
+ *
+ * Since House[1] and House[n] are adjacent, they cannot be robbed together.
+ * Therefore, the problem becomes to rob either House[1]-House[n-1] or House[2]-House[n],depending on which choice offers more money.
+ *
  */
 
 class Solution {

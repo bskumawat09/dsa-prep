@@ -1,6 +1,6 @@
-/*
- https://practice.geeksforgeeks.org/problems/coin-change2448/1
-
+/**
+ * https://practice.geeksforgeeks.org/problems/coin-change2448/1
+ *
  */
 
 #include <algorithm>
@@ -39,7 +39,7 @@ public:
     }
 };
 
-/*
+/**
  --------------------------------------------Tabulation--------------------------------------------
  * 1d DP
  * Storage & Meaning: dp[i] => # of ways to make the sum "j" permuting all coins.

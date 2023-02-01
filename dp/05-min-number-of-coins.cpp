@@ -1,6 +1,6 @@
-/*
- https://practice.geeksforgeeks.org/problems/number-of-coins1824/1
-
+/**
+ * https://practice.geeksforgeeks.org/problems/number-of-coins1824/1
+ *
  */
 
 #include <cstring>
@@ -16,7 +16,9 @@ public:
     int dp[N][N];
 
     int minCoins(int coins[], int n, int sum) {
+        // Code here
         memset(dp, -1, sizeof(dp));
+
         return _minCoins(0, coins, n, sum);
     }
 
@@ -37,7 +39,7 @@ public:
     }
 };
 
-/*
+/**
  --------------------------------------------Tabulation--------------------------------------------
  * 2d DP
  * Storage & Meaning: dp[i][j] => min # of coins to make the sum "j" by combining first "i" coins.
@@ -111,13 +113,13 @@ int main() {
     return 0;
 }
 
-/*
- Input:
- coins[] = [25, 10, 6]
- n = 3
- sum = 30
-
- Output:
- 2
-
+/**
+ * Input:
+ * coins[] = [25, 10, 6]
+ * n = 3
+ * sum = 30
+ *
+ * Output:
+ * 2
+ *
  */

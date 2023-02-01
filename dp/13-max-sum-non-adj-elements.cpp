@@ -1,4 +1,4 @@
-/*
+/**
  * https://practice.geeksforgeeks.org/problems/stickler-theif-1587115621/1
  * https://leetcode.com/problems/house-robber/
  *
@@ -18,6 +18,7 @@ public:
     int maxSumNonAdjacent(int nums[], int n) {
         // Code here
         memset(dp, -1, sizeof(dp));
+
         return helper(nums, n);
     }
 
@@ -35,7 +36,7 @@ public:
     }
 };
 
-/*
+/**
  --------------------------------------------Tabulation--------------------------------------------
  * 1d DP
  * Storage & Meaning: dp[i] => max. sum non-adjacent elements in the range (0 to i)
@@ -64,7 +65,7 @@ public:
     }
 };
 
-/*
+/**
  --------------------------------------------Space Optimized--------------------------------------------
  * DP using 2 variables
  * Only dp[i-1] and dp[i-2] is required
@@ -107,12 +108,12 @@ int main() {
     return 0;
 }
 
-/*
- Input:
- nums[] = [5, 20, 15, -2, 186]
- n = 3
-
- Output:
- 38
-
+/**
+ * Input:
+ * nums[] = [5, 20, 15, -2, 186]
+ * n = 3
+ *
+ * Output:
+ * 38
+ *
  */

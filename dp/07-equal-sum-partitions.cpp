@@ -10,6 +10,7 @@ using namespace std;
 class SolutionMemo {
 public:
     bool equalPartitions(vector<int>& nums) {
+        // Code here
         int n = nums.size();
 
         int totalSum = 0;
@@ -91,7 +92,7 @@ int main() {
     return 0;
 }
 
-/*
+/**
  * Input:
  * nums = [2,3,3,3,5]
  *
